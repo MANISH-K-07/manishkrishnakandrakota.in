@@ -3,62 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manish Krishna Kandrakota</title>
+
+    <title>Manish Krishna Kandrakota | Computer Science Engineer</title>
+
+    <meta name="description" content="Manish Krishna Kandrakota - Computer Science Engineer, Researcher, and Systems Builder. Explore projects, research publications, and technical work.">
+
+    <meta name="keywords" content="Manish Krishna, Computer Science Engineer, Portfolio, Systems, Research, GitHub, Software Engineer">
+
+    <meta name="author" content="Manish Krishna Kandrakota">
+
+    <!-- Open Graph (LinkedIn / WhatsApp preview) -->
+    <meta property="og:title" content="Manish Krishna Kandrakota | Portfolio">
+    <meta property="og:description" content="Computer Science Engineer • Systems Builder • Researcher">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://MANISH-K-07.github.io/manishkrishnakandrakota.in/">
+
     <link rel="stylesheet" href="style.css">
+    <link rel="canonical" href="https://MANISH-K-07.github.io/manishkrishnakandrakota.in/">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </head>
+
 <body>
 
     <header>
         <nav>
-            <h1 class="logo">MK</h1>
+            <h1 class="logo">Krish</h1>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#research">Research</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <button id="theme-toggle" class="theme-btn">🌙</button>
         </nav>
     </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h2>Hi, I'm Manish Krishna 👋</h2>
-            <p>Computer Science Engineer | Researcher | Builder</p>
+<section class="hero">
+    <div id="particles-js"></div>
+    <div class="hero-wrapper">
+
+        <div class="hero-text">
+            <h2 class="hero-title">
+                <span class="gradient-text">Manish Krishna Kandrakota</span>
+            </h2>
+            <p class="hero-subtitle">
+                Computer Science Engineer • Systems Builder • Researcher
+            </p>
             <button onclick="scrollToSection('projects')">View My Work</button>
+            <a href="assets/resume.pdf" download class="resume-btn">Download Resume</a>
         </div>
-    </section>
 
-    <section id="about" class="section">
-        <h2>About Me</h2>
+        <div class="hero-image">
+            <img src="assets/profile.jpg" alt="Profile Photo">
+        </div>
+
+    </div>
+</section>
+
+<section id="vision" class="section">
+    <h2>What I’m Building Towards</h2>
+    <p>
+        My work focuses on building scalable, secure, and high-performance systems.
+        I am particularly interested in distributed systems, compiler design,
+        runtime optimization, and infrastructure for intelligent systems.
+    </p>
+</section>
+
+<section id="projects" class="section">
+    <h2>Projects</h2>
+
+    <div id="project-list" class="card-container">
+        <!-- Dynamic GitHub projects go here -->
+    </div>
+</section>
+
+<section id="research" class="section">
+    <h2>Research & Publications</h2>
+
+    <div class="research-card">
+        <h3>IEEE Xplore Publication</h3>
         <p>
-            I am a Computer Science Engineering student passionate about systems,
-            research, and building scalable software solutions.
+            Published research in IEEE Xplore focusing on advanced computational
+            methodologies and system-level optimizations.
         </p>
-    </section>
+        <p><strong>Area:</strong> Systems / Optimization / Computing</p>
+        <a href="#" target="_blank" class="research-link">View Publication →</a>
+    </div>
+</section>
 
-    <section id="projects" class="section">
-        <h2>Projects</h2>
-        <div class="card-container">
-            <div class="card">
-                <h3>Project 1</h3>
-                <p>Description of your project.</p>
-            </div>
-            <div class="card">
-                <h3>Project 2</h3>
-                <p>Description of your project.</p>
-            </div>
-        </div>
-    </section>
+<section id="contact" class="section">
+    <h2>Let's Connect</h2>
 
-    <section id="research" class="section">
-        <h2>Research</h2>
-        <p>Published research and academic contributions will go here.</p>
-    </section>
+    <div class="social-links">
+        <a href="https://github.com/MANISH-K-07" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/manish-k-kandrakota/" target="_blank">LinkedIn</a>
+        <a href="mailto:manish07070707@gmail.com">Email</a>
+    </div>
+</section>
 
-    <section id="contact" class="section">
-        <h2>Contact</h2>
-        <p>Email: your.email@example.com</p>
-    </section>
+<footer>
+    <p>© 2026 Manish Krishna Kandrakota. Built from scratch.</p>
+</footer>
 
     <script src="script.js"></script>
 </body>
