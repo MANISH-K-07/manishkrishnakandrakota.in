@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <!-- Inline critical CSS — cursor hide, cannot be cached away -->
+    <!-- Inline critical CSS — cursor hide -->
     <style>
         * { cursor: none !important; }
         @media (pointer: coarse) { * { cursor: auto !important; } }
@@ -33,7 +33,7 @@
     </div>
 </div>
 
-<!-- CANVAS — fixed, full page, pointer-events:none so it never blocks clicks -->
+<!-- CANVAS — full page -->
 <canvas id="bg-canvas"></canvas>
 
 <!-- CUSTOM CURSOR -->
@@ -124,22 +124,25 @@
         <div class="section-label mono">01. about</div>
         <h2 class="section-title">What I Build</h2>
         <p class="section-intro">
-            Final-year B.Tech CSE student at Sreenidhi Institute of Science and Technology.
-            I specialize in systems-level engineering — from distributed architectures to compiler internals,
-            static analysis pipelines, and security tooling. I treat code as infrastructure: precise, verifiable, and built to last.
+            <strong>Focused on building systems that make software more reliable and secure. </strong><br><br>
+
+            My work sits at the intersection of systems engineering, program analysis, and security tooling 
+            — from distributed infrastructure and static analysis pipelines to developer-focused security frameworks. <br>
+            I design tools that operate close to the code itself: 
+            analyzing program structure, enforcing correctness, and uncovering vulnerabilities before they reach production. 
         </p>
         <div class="expertise-grid">
             <div class="expertise-card">
                 <div class="expertise-icon">⚙</div>
                 <h3>Systems Engineering</h3>
-                <p>Designing fault-tolerant distributed systems, key-value stores, and concurrent architectures with consistency guarantees.</p>
+                <p>Designing fault-tolerant distributed systems and concurrent architectures with consistency guarantees.</p>
                 <div class="etags"><span>Distributed Systems</span><span>Concurrency</span><span>Fault Tolerance</span></div>
             </div>
             <div class="expertise-card">
                 <div class="expertise-icon">🔬</div>
                 <h3>Static Analysis</h3>
                 <p>Building program analysis tools at the AST level — linters, taint analyzers, complexity checkers, and runtime profilers.</p>
-                <div class="etags"><span>AST Parsing</span><span>Program Analysis</span><span>Checkstyle</span></div>
+                <div class="etags"><span>AST Parsing</span><span>Program Analysis</span><span>Code Quality</span><span>Compiler Tooling</span></div>
             </div>
             <div class="expertise-card">
                 <div class="expertise-icon">🔐</div>
@@ -246,7 +249,7 @@
                 <div class="side-card">
                     <div class="side-icon">✍</div>
                     <h4>Technical Writing</h4>
-                    <p>Long-form deep dives on compilers, distributed systems, and ML — treating documentation as engineering.</p>
+                    <p>Long-form deep dives on compilers, distributed systems, and ML — treating documentation as crucial as implementation.</p>
                     <div class="write-links">
                         <a href="https://medium.com/@MANISH-K-07" target="_blank">Medium ↗</a>
                         <a href="https://hashnode.com/@MANISH-K-07" target="_blank">Hashnode ↗</a>
@@ -269,7 +272,8 @@
                     <div class="tl-body">
                         <div class="tl-meta"><span class="tl-org">Checkstyle (Open Source)</span><span class="mono tl-date">2023 – 2024</span></div>
                         <h4>Open-Source Contributor</h4>
-                        <p>100+ merged contributions — code reliability, test coverage improvements, and rule implementations for one of Java's most-used static analysis tools, used by millions of developers worldwide.</p>
+                        <p>100+ merged contributions — <br>
+                            code reliability, test coverage improvements, and rule implementations for one of Java's most used static analysis tools, used by millions of developers worldwide.</p>
                         <div class="card-tags"><span>Java</span><span>Static Analysis</span><span>Open Source</span></div>
                         <button class="detail-btn" onclick="openModal('checkstyle-modal')">View Contributions &amp; LOR ↗</button>
                     </div>
@@ -289,11 +293,12 @@
                     <span>💬</span>
                     <div><div class="cert-name">Business English — English Expert</div><div class="cert-issuer">Pearson · Credly Verified</div></div>
                 </div>
-                <h3 class="mono panel-label" style="margin-top:2rem">// languages</h3>
+                <h3 class="mono panel-label" style="margin-top:2rem">// languages &amp; skills</h3>
                 <div class="skills-grid">
-                    <span>Java</span><span>Python</span><span>JavaScript</span>
-                    <span>C++</span><span>Solidity</span><span>Docker</span>
-                    <span>Node.js</span><span>CI/CD</span>
+                    <span>Java</span><span>Python</span><span>C++</span><span>JavaScript</span>
+                    <span>Solidity</span><span>Linux</span><span>Docker</span>
+                    <span>Git · GitHub API · CI/CD Automation</span>
+                    <span>Technical Documentation</span><span>Research</span>
                 </div>
             </div>
         </div>
@@ -312,7 +317,8 @@
                 <div class="tl-body">
                     <div class="tl-meta"><span class="tl-org">Carnegie Mellon University</span><span class="mono tl-date">Fall 2026</span></div>
                     <h4>Master of Science in Information Security</h4>
-                    <p>Admitted to the Information Networking Institute. Focusing on systems, security, and large-scale software engineering.</p>
+                    <p>Admitted to the Information Networking Institute. <br>
+                        Focusing on systems, security, and large-scale software engineering.</p>
                     <div class="card-tags"><span class="gold-tag">🎓 CMU Admit</span></div>
                 </div>
             </div>
@@ -322,7 +328,8 @@
                 <div class="tl-body">
                     <div class="tl-meta"><span class="tl-org">Sreenidhi Institute of Science and Technology</span><span class="mono tl-date">2022 – 2026</span></div>
                     <h4>B.Tech Computer Science Engineering</h4>
-                    <p>IEEE-published during sophomore year. Built an extensive systems-focused project portfolio spanning distributed systems, compilers, program analysis, and ML infrastructure.</p>
+                    <p>IEEE-published during sophomore year. <br>
+                        Built an extensive systems-focused project portfolio spanning distributed systems, compilers, program analysis, and ML infrastructure.</p>
                     <div class="card-tags"><span>CSE</span><span>Systems</span><span>Research</span></div>
                     <div class="detail-btn-group">
                         <button class="detail-btn" onclick="openModal('snist-modal')">View Courses &amp; LORs ↗</button>
@@ -336,7 +343,8 @@
                 <div class="tl-body">
                     <div class="tl-meta"><span class="tl-org">Telangana State Board of Intermediate Education (TSBIE)</span><span class="mono tl-date">2019 – 2021</span></div>
                     <h4>Class XII — MPC (Mathematics, Physics, Chemistry)</h4>
-                    <p>Secured 97% in board examinations. Strong foundation in mathematics and sciences that underpins systems thinking and algorithm design.</p>
+                    <p>Secured 97% in board examinations. <br>
+                        Strong foundation in mathematics and sciences that underpins systems thinking and algorithm design.</p>
                     <div class="card-tags"><span class="gold-tag">97%</span><span>MPC</span><span>TSBIE</span></div>
                 </div>
             </div>
@@ -346,7 +354,8 @@
                 <div class="tl-body">
                     <div class="tl-meta"><span class="tl-org">Telangana State Secondary School Certificate (TS SSC)</span><span class="mono tl-date">2019</span></div>
                     <h4>Class X — Secondary School Certificate</h4>
-                    <p>Achieved a perfect 10/10 CGPA. Consistently demonstrated academic excellence from foundational schooling onward.</p>
+                    <p>Achieved a perfect 10/10 CGPA. <br>
+                        Consistently demonstrated academic excellence from foundational schooling onward.</p>
                     <div class="card-tags"><span class="gold-tag">10/10 CGPA</span><span>TS SSC</span></div>
                 </div>
             </div>
@@ -389,10 +398,29 @@
             </div>
         </div>
 
-        <!-- SGPA Chart -->
-        <div class="modal-section-label mono">// semester performance (GPA)</div>
-        <div class="sgpa-chart-wrap">
-            <canvas id="sgpa-chart" height="140"></canvas>
+        <!-- LORs -->
+        <div class="modal-section-label mono" style="margin-top:1.8rem">// letters of recommendation</div>
+        <div class="lor-list">
+            <div class="lor-card">
+                <div class="lor-info">
+                    <div class="lor-name">Dr. K. Shirisha</div>
+                    <div class="lor-role">Professor &amp; Head of Department, CSE · SNIST</div>
+                </div>
+                <div class="lor-actions">
+                    <a href="assets/ManishK_LOR_Dr.K.Shirisha.pdf" target="_blank" class="lor-btn">View ↗</a>
+                    <a href="assets/ManishK_LOR_Dr.K.Shirisha.pdf" download class="lor-btn lor-btn-dl">Download ↓</a>
+                </div>
+            </div>
+            <div class="lor-card">
+                <div class="lor-info">
+                    <div class="lor-name">Prof. Ch. Srinath Reddy</div>
+                    <div class="lor-role">Faculty, Department of CSE · SNIST</div>
+                </div>
+                <div class="lor-actions">
+                    <a href="assets/ManishK_LOR_Ch.SrinathReddy.pdf" target="_blank" class="lor-btn">View ↗</a>
+                    <a href="assets/ManishK_LOR_Ch.SrinathReddy.pdf" download class="lor-btn lor-btn-dl">Download ↓</a>
+                </div>
+            </div>
         </div>
 
         <!-- Semester Tabs -->
@@ -419,6 +447,7 @@
                 <div class="ct-row ct-lab"><span>Problem Solving Using C Lab</span><span class="ct-grade gO">O</span></div>
                 <div class="ct-row ct-lab"><span>Workshop Manufacturing Processes Lab</span><span class="ct-grade gB">B+</span></div>
             </div>
+            <div class="sem-meta mono">* <span class="sgpa-val">O</span> ⮕ Outstanding</div>
         </div>
 
         <div class="sem-panel" id="sem2">
@@ -433,6 +462,7 @@
                 <div class="ct-row ct-lab"><span>Engineering Physics Lab</span><span class="ct-grade gA">A+</span></div>
                 <div class="ct-row ct-lab"><span>Oral Communication Lab - II</span><span class="ct-grade gO">O</span></div>
             </div>
+            <div class="sem-meta mono">* <span class="sgpa-val">O</span> ⮕ Outstanding</div>
         </div>
 
         <div class="sem-panel" id="sem3">
@@ -447,6 +477,7 @@
                 <div class="ct-row ct-lab"><span>Digital Electronics Lab</span><span class="ct-grade gO">O</span></div>
                 <div class="ct-row ct-lab"><span>OOP Through Java Lab</span><span class="ct-grade gO">O</span></div>
             </div>
+            <div class="sem-meta mono">* <span class="sgpa-val">O</span> ⮕ Outstanding</div>
         </div>
 
         <div class="sem-panel" id="sem4">
@@ -462,6 +493,7 @@
                 <div class="ct-row ct-lab"><span>IT Workshop and Computer Organization Lab</span><span class="ct-grade gO">O</span></div>
                 <div class="ct-row ct-lab"><span>Soft Skills Lab</span><span class="ct-grade gA">A+</span></div>
             </div>
+            <div class="sem-meta mono">* <span class="sgpa-val">O</span> ⮕ Outstanding</div>
         </div>
 
         <div class="sem-panel" id="sem5">
@@ -477,6 +509,7 @@
                 <div class="ct-row ct-lab"><span>Software Engineering Lab</span><span class="ct-grade gB">B+</span></div>
                 <div class="ct-row ct-lab"><span>Summer Industry Internship - I</span><span class="ct-grade gA">A+</span></div>
             </div>
+            <div class="sem-meta mono">* <span class="sgpa-val">O</span> ⮕ Outstanding</div>
         </div>
 
         <div class="sem-panel" id="sem6">
@@ -492,6 +525,7 @@
                 <div class="ct-row ct-lab"><span>Web Technologies Lab</span><span class="ct-grade gA">A</span></div>
                 <div class="ct-row ct-lab"><span>Comprehensive Viva Voce</span><span class="ct-grade gA">A</span></div>
             </div>
+            <div class="sem-meta mono">* <span class="sgpa-val">O</span> ⮕ Outstanding</div>
         </div>
 
         <div class="sem-panel" id="sem7">
@@ -506,42 +540,15 @@
                 <div class="ct-row ct-lab"><span>Compiler Design &amp; Information Security Lab</span><span class="ct-grade gip">—</span></div>
                 <div class="ct-row ct-lab"><span>Linux Programming Lab</span><span class="ct-grade gip">—</span></div>
             </div>
+            <div class="sem-meta mono">* <span class="sgpa-val">O</span> ⮕ Outstanding</div>
         </div>
 
-        <!-- Transcript + LORs -->
-        <div class="modal-section-label mono" style="margin-top:1.8rem">// transcripts &amp; letters of recommendation</div>
-        <div class="lor-list">
-            <div class="lor-card">
-                <div class="lor-info">
-                    <div class="lor-name">Official B.Tech Transcripts</div>
-                    <div class="lor-role">SNIST · Semesters 1–6 · Verified by Controller of Examinations</div>
-                </div>
-                <div class="lor-actions">
-                    <a href="ManishK_BTech_Transcripts.pdf" target="_blank" class="lor-btn">View ↗</a>
-                    <a href="ManishK_BTech_Transcripts.pdf" download class="lor-btn lor-btn-dl">Download ↓</a>
-                </div>
-            </div>
-            <div class="lor-card">
-                <div class="lor-info">
-                    <div class="lor-name">Dr. K. Shirisha</div>
-                    <div class="lor-role">Professor &amp; Head of Department, CSE · SNIST</div>
-                </div>
-                <div class="lor-actions">
-                    <a href="ManishK_LOR_Dr_K_Shirisha.pdf" target="_blank" class="lor-btn">View ↗</a>
-                    <a href="ManishK_LOR_Dr_K_Shirisha.pdf" download class="lor-btn lor-btn-dl">Download ↓</a>
-                </div>
-            </div>
-            <div class="lor-card">
-                <div class="lor-info">
-                    <div class="lor-name">Prof. Ch. Srinath Reddy</div>
-                    <div class="lor-role">Faculty, Department of CSE · SNIST</div>
-                </div>
-                <div class="lor-actions">
-                    <a href="ManishK_LOR_Ch_SrinathReddy.pdf" target="_blank" class="lor-btn">View ↗</a>
-                    <a href="ManishK_LOR_Ch_SrinathReddy.pdf" download class="lor-btn lor-btn-dl">Download ↓</a>
-                </div>
-            </div>
+        <!-- SGPA Chart -->
+        <div class="modal-section-label mono">// semester performance (GPA)</div>
+        <div class="sgpa-chart-wrap">
+            <canvas id="sgpa-chart" height="140"></canvas>
         </div>
+
     </div>
 </div>
 
@@ -550,7 +557,7 @@
     <div class="modal-box">
         <button class="modal-close" onclick="closeModal('capstone-modal')">✕</button>
         <div class="modal-header">
-            <div class="modal-icon">🚀</div>
+            <div class="modal-icon">🐍</div>
             <div>
                 <h2 class="modal-title">SphinxATS</h2>
                 <p class="modal-sub mono">Final Year Capstone Project · B.Tech CSE · SNIST</p>
@@ -590,12 +597,12 @@
             <div class="modal-icon">⬡</div>
             <div>
                 <h2 class="modal-title">Checkstyle — Open Source Contributions</h2>
-                <p class="modal-sub mono">100+ Merged Pull Requests · 2024 – Present</p>
+                <p class="modal-sub mono">100+ Merged Pull Requests · 2023 – 2024</p>
             </div>
         </div>
         <div class="modal-section-label mono">// contribution breakdown</div>
         <div class="contrib-stats">
-            <div class="contrib-stat"><span class="contrib-num">130</span><span class="contrib-label">Merged PRs</span></div>
+            <div class="contrib-stat"><span class="contrib-num">100+</span><span class="contrib-label">Merged PRs</span></div>
             <div class="contrib-stat"><span class="contrib-num">5</span><span class="contrib-label">Contribution Types</span></div>
             <div class="contrib-stat"><span class="contrib-num">↑</span><span class="contrib-label">Test Coverage</span></div>
         </div>
@@ -635,11 +642,11 @@
             <div class="lor-card">
                 <div class="lor-info">
                     <div class="lor-name">Roman Ivanov</div>
-                    <div class="lor-role">Project Administrator &amp; Lead Developer · Checkstyle</div>
+                    <div class="lor-role">Project Admin &amp; Lead Developer · Checkstyle</div>
                 </div>
                 <div class="lor-actions">
-                    <a href="ManishK_LOR_RomanIvanov.pdf" target="_blank" class="lor-btn">View ↗</a>
-                    <a href="ManishK_LOR_RomanIvanov.pdf" download class="lor-btn lor-btn-dl">Download ↓</a>
+                    <a href="assets/ManishK_LOR_RomanIvanov.pdf" target="_blank" class="lor-btn">View ↗</a>
+                    <a href="assets/ManishK_LOR_RomanIvanov.pdf" download class="lor-btn lor-btn-dl">Download ↓</a>
                 </div>
             </div>
         </div>

@@ -408,9 +408,7 @@ footer { padding:24px 32px; border-top:1px solid var(--border); background:var(-
     .footer-inner { flex-direction:column; text-align:center; }
 }
 
-/* ════════════════════════════════════════
-   MODAL SYSTEM
-════════════════════════════════════════ */
+/* ── Modal System ── */
 .detail-btn {
     display: inline-flex; align-items: center; gap: 6px;
     margin-top: 14px; padding: 7px 16px;
@@ -536,9 +534,7 @@ body.light-mode .bar-track { background: rgba(0,0,0,0.08); }
     .bar-label { width: 130px; font-size: 11px; }
 }
 
-/* ════════════════════════════════════
-   SNIST MODAL ADDITIONS
-════════════════════════════════════ */
+/* ── SNIST Modal Additions ── */
 
 /* SGPA Chart */
 .sgpa-chart-wrap {
