@@ -3,219 +3,345 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Manish Krishna Kandrakota | Computer Science Engineer</title>
-
-    <meta name="description" content="Manish Krishna Kandrakota - Computer Science Engineer, Researcher, and Systems Builder. Explore projects, research publications, and technical work.">
-
-    <meta name="keywords" content="Manish Krishna, Computer Science Engineer, Portfolio, Systems, Research, GitHub, Software Engineer">
-
+    <title>Manish Krishna Kandrakota | Systems Engineer</title>
+    <meta name="description" content="Manish Krishna Kandrakota — CS Engineer, Systems Builder, IEEE Author, CMU MSIS '26.">
     <meta name="author" content="Manish Krishna Kandrakota">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
-    <!-- Open Graph (LinkedIn / WhatsApp preview) -->
-    <meta property="og:title" content="Manish Krishna Kandrakota | Portfolio">
-    <meta property="og:description" content="Computer Science Engineer • Systems Builder • Researcher">
+    <meta property="og:title" content="Manish Krishna Kandrakota | Systems Engineer">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://MANISH-K-07.github.io/manishkrishnakandrakota.in/">
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="canonical" href="https://MANISH-K-07.github.io/manishkrishnakandrakota.in/">
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-</head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
+    <!-- Inline critical CSS — cursor hide, cannot be cached away -->
+    <style>
+        * { cursor: none !important; }
+        @media (pointer: coarse) { * { cursor: auto !important; } }
+    </style>
+
+    <link rel="stylesheet" href="style.css?v=4">
+</head>
 <body>
 
-    <header>
-        <nav>
-            <h1 class="logo">Krish</h1>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#research">Research</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <button id="theme-toggle" class="theme-btn">🌙</button>
-        </nav>
-    </header>
+<!-- LOADER -->
+<div id="loader">
+    <div class="loader-inner">
+        <div class="loader-logo">MK</div>
+        <div class="loader-bar-track"><div class="loader-bar"></div></div>
+        <div class="loader-label">Initializing systems...</div>
+    </div>
+</div>
 
-<section class="hero">
-    <div id="particles-js"></div>
-    <div class="hero-wrapper">
+<!-- CANVAS — fixed, full page, pointer-events:none so it never blocks clicks -->
+<canvas id="bg-canvas"></canvas>
 
-        <div class="hero-text">
-            <h2 class="hero-title">
-                <span class="gradient-text">Manish Krishna Kandrakota</span>
-            </h2>
-            <p class="hero-subtitle">
-                Computer Science & Security Engineer
+<!-- CUSTOM CURSOR -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- HEADER -->
+<header id="header">
+    <nav class="nav-container">
+        <a href="#" class="nav-logo"><span class="dim">[</span>MK<span class="dim">]</span></a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button id="theme-toggle" class="theme-btn">◐</button>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <div class="hero-left">
+            <div class="hero-tag">
+                <span class="tag-dot"></span>
+                <span>Open to Opportunities</span>
+            </div>
+            <h1 class="hero-name">
+                Manish Krishna<br><em>Kandrakota</em>
+            </h1>
+            <p class="hero-role"><span class="mono">//</span> CS &amp; Security Engineer</p>
+            <p class="hero-desc">
+                Building resilient distributed systems, compilers, and security tools.
+                Admitted to <strong>CMU MSIS '26</strong>. IEEE-published author.
+                100+ open-source contributions.
             </p>
-            <p class="hero-subtitle">
-                • Building Resilient Distributed Systems •
-            </p>
-            <button onclick="scrollToSection('projects')">View My Work</button>
-            <a href="assets/resume.pdf" download class="resume-btn">Download Resume</a>
+            <div class="hero-cta">
+                <button class="btn-primary" onclick="scrollToId('projects')">View My Work</button>
+                <a href="assets/resume.pdf" download class="btn-outline">Download Resume ↓</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-num" data-target="6">6</span>
+                    <span class="stat-label">Projects</span>
+                </div>
+                <div class="stat-div"></div>
+                <div class="stat">
+                    <span class="stat-num" data-target="100" data-suffix="+">100+</span>
+                    <span class="stat-label">OSS Contributions</span>
+                </div>
+                <div class="stat-div"></div>
+                <div class="stat">
+                    <span class="stat-num" data-target="1">1</span>
+                    <span class="stat-label">IEEE Publication</span>
+                </div>
+            </div>
         </div>
-
-        <div class="hero-image">
-            <img src="assets/profile.jpg" alt="Profile Photo">
+        <div class="hero-right">
+            <div class="profile-frame">
+                <div class="profile-ring"></div>
+                <img src="assets/profile.jpg" alt="Manish Krishna Kandrakota" class="profile-img">
+                <div class="profile-badge">
+                    <span>🎓</span>
+                    <div>
+                        <div class="badge-title">CMU MSIS</div>
+                        <div class="badge-sub">Fall 2026 Admit</div>
+                    </div>
+                </div>
+            </div>
         </div>
-
+    </div>
+    <div class="scroll-hint">
+        <span>scroll</span>
+        <div class="scroll-line"></div>
     </div>
 </section>
 
-<section id="vision" class="section">
+<!-- ABOUT -->
+<section id="about" class="section">
     <div class="container">
-    <h2>What I’m Building Towards</h2>
-    <p>
-        My work focuses on building scalable, secure, and high-performance systems.
-        I am particularly interested in distributed systems, compiler design,
-        runtime optimization, and infrastructure for intelligent systems.
-    </p>
-    </div>
-</section>
-
-<section id="projects" class="section featured-section">
-    <div class="container">
-    <h2 class="section-title">Featured Work</h2>
-
-    <!-- NodeSync -->
-    <div class="featured-project reverse">
-        <div class="project-text">
-            <h3>NodeSync</h3>
-            <p class="project-description">
-                A distributed file synchronization system ensuring real-time
-                consistency across nodes.
-            </p>
-            <p class="project-impact">
-                Built to explore consistency models, network communication,
-                and fault-tolerant design.
-            </p>
-            <a href="https://github.com/MANISH-K-07/NodeSync" target="_blank" class="project-btn">
-                View on GitHub
-            </a>
-        </div>
-<div class="project-visual nodesync-visual">
-    <span class="project-watermark">NodeSync</span>
-    <div class="tech-badges">
-        <span>Python</span>
-        <span>Distributed Systems</span>
-        <span>Fault Tolerance</span>
-    </div>
-</div>
-    </div>
-
-    <!-- SecureFlow -->
-    <div class="featured-project">
-        <div class="project-text">
-            <h3>SecureFlow</h3>
-            <p class="project-description">
-                A secure microservices communication framework implementing
-                authentication, encrypted channels, and structured request handling.
-            </p>
-            <p class="project-impact">
-                Designed to simulate real-world distributed environments with
-                security-first architecture.
-            </p>
-            <a href="https://github.com/MANISH-K-07/SecureFlow" target="_blank" class="project-btn">
-                View on GitHub
-            </a>
-        </div>
-<div class="project-visual secureflow-visual">
-    <span class="project-watermark">SecureFlow</span>
-    <div class="tech-badges">
-        <span>Java</span>
-        <span>Software Security</span>
-        <span>Vulnerability Analysis</span>
-    </div>
-</div>
-    </div>
-
-    <!-- CodeChecker -->
-    <div class="featured-project reverse">
-        <div class="project-text">
-            <h3>CodeChecker</h3>
-            <p class="project-description">
-                A static code analysis engine built to detect inefficiencies and
-                potential vulnerabilities in Python applications using AST-level parsing.
-            </p>
-            <p class="project-impact">
-                Focused on improving maintainability and identifying structural
-                issues before runtime.
-            </p>
-            <a href="https://github.com/MANISH-K-07/CodeChecker" target="_blank" class="project-btn">
-                View on GitHub
-            </a>
-        </div>
-<div class="project-visual codechecker-visual">
-    <span class="project-watermark">CodeChecker</span>
-    <div class="tech-badges">
-        <span>Java</span>
-        <span>AST</span>
-        <span>Static Analysis</span>
-    </div>
-</div>
-    </div>
-
-    <!-- Py2C -->
-    <div class="featured-project">
-        <div class="project-text">
-            <h3>Py2C</h3>
-            <p class="project-description">
-                A compiler tool translating Python constructs into optimized C code
-                to enhance execution performance.
-            </p>
-            <p class="project-impact">
-                Explores compiler theory, code generation, and runtime efficiency.
-            </p>
-            <a href="https://github.com/MANISH-K-07/Py2C" target="_blank" class="project-btn">
-                View on GitHub
-            </a>
-        </div>
-<div class="project-visual py2c-visual">
-    <span class="project-watermark">Py2C</span>
-    <div class="tech-badges">
-        <span>Python</span>
-        <span>Compiler Design</span>
-        <span>Program Transformation</span>
-    </div>
-</div>
-    </div>
-    </div>
-
-</section>
-
-<section id="research" class="section">
-    <h2>Research & Publications</h2>
-
-    <div class="research-card">
-        <h3>IEEE Xplore Publication</h3>
-        <p>
-            Published research in IEEE Xplore focusing on advanced computational
-            methodologies and system-level optimizations.
+        <div class="section-label mono">01. about</div>
+        <h2 class="section-title">What I Build</h2>
+        <p class="section-intro">
+            Final-year B.Tech CSE student at Sreenidhi Institute of Science and Technology.
+            I specialize in systems-level engineering — from distributed architectures to compiler internals,
+            static analysis pipelines, and security tooling. I treat code as infrastructure: precise, verifiable, and built to last.
         </p>
-        <p><strong>Area:</strong> Systems / Optimization / Computing</p>
-        <a href="#" target="_blank" class="research-link">View Publication →</a>
+        <div class="expertise-grid">
+            <div class="expertise-card">
+                <div class="expertise-icon">⚙</div>
+                <h3>Systems Engineering</h3>
+                <p>Designing fault-tolerant distributed systems, key-value stores, and concurrent architectures with consistency guarantees.</p>
+                <div class="etags"><span>Distributed Systems</span><span>Concurrency</span><span>Fault Tolerance</span></div>
+            </div>
+            <div class="expertise-card">
+                <div class="expertise-icon">🔬</div>
+                <h3>Static Analysis</h3>
+                <p>Building program analysis tools at the AST level — linters, taint analyzers, complexity checkers, and runtime profilers.</p>
+                <div class="etags"><span>AST Parsing</span><span>Program Analysis</span><span>Checkstyle</span></div>
+            </div>
+            <div class="expertise-card">
+                <div class="expertise-icon">🔐</div>
+                <h3>Software Security</h3>
+                <p>Implementing taint-analysis frameworks, encrypted microservice channels, and vulnerability detection in production code.</p>
+                <div class="etags"><span>Taint Analysis</span><span>Cryptography</span><span>Secure Design</span></div>
+            </div>
+        </div>
     </div>
 </section>
 
-<section id="contact" class="section">
-    <h2>Let's Connect</h2>
+<!-- PROJECTS -->
+<section id="projects" class="section alt-section">
+    <div class="container">
+        <div class="section-label mono">02. projects</div>
+        <h2 class="section-title">Featured Work</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="card-top">
+                    <div class="card-bar" style="background:linear-gradient(90deg,#00c4ff,#0066ff)"></div>
+                    <span class="card-num mono">01</span>
+                    <a href="https://github.com/MANISH-K-07/NodeSync" target="_blank" class="card-link">↗</a>
+                </div>
+                <h3>NodeSync</h3>
+                <p>Mini fault-tolerant key-value store exploring consistency models, network communication, and fault-tolerant design across distributed nodes.</p>
+                <div class="card-tags"><span>Python</span><span>Distributed Systems</span><span>Fault Tolerance</span></div>
+            </div>
+            <div class="project-card">
+                <div class="card-top">
+                    <div class="card-bar" style="background:linear-gradient(90deg,#7b2fff,#c026d3)"></div>
+                    <span class="card-num mono">02</span>
+                    <a href="https://github.com/MANISH-K-07/SecureFlow" target="_blank" class="card-link">↗</a>
+                </div>
+                <h3>SecureFlow</h3>
+                <p>Static taint-analysis tool detecting untrusted input flows to dangerous APIs. Security-first microservices with encrypted channels.</p>
+                <div class="card-tags"><span>Java</span><span>Taint Analysis</span><span>Software Security</span></div>
+            </div>
+            <div class="project-card">
+                <div class="card-top">
+                    <div class="card-bar" style="background:linear-gradient(90deg,#00ff88,#00c4ff)"></div>
+                    <span class="card-num mono">03</span>
+                    <a href="https://github.com/MANISH-K-07/CodeChecker" target="_blank" class="card-link">↗</a>
+                </div>
+                <h3>CodeChecker</h3>
+                <p>Java-based code linter with style checks and cyclomatic complexity analysis. AST-level static analysis to detect inefficiencies before runtime.</p>
+                <div class="card-tags"><span>Java</span><span>AST</span><span>Static Analysis</span></div>
+            </div>
+            <div class="project-card">
+                <div class="card-top">
+                    <div class="card-bar" style="background:linear-gradient(90deg,#f0b429,#ff6b00)"></div>
+                    <span class="card-num mono">04</span>
+                    <a href="https://github.com/MANISH-K-07/Py2C" target="_blank" class="card-link">↗</a>
+                </div>
+                <h3>Py2C</h3>
+                <p>Mini Python-to-C optimizer built from first principles. Explores compiler theory, code generation, and runtime efficiency improvements.</p>
+                <div class="card-tags"><span>Python</span><span>Compiler Design</span><span>Code Generation</span></div>
+            </div>
+            <div class="project-card">
+                <div class="card-top">
+                    <div class="card-bar" style="background:linear-gradient(90deg,#ff4488,#7b2fff)"></div>
+                    <span class="card-num mono">05</span>
+                    <a href="https://github.com/MANISH-K-07/PyScope" target="_blank" class="card-link">↗</a>
+                </div>
+                <h3>PyScope</h3>
+                <p>Lightweight performance profiler for Python programs. Dynamic program analysis and runtime systems instrumentation for real workloads.</p>
+                <div class="card-tags"><span>Python</span><span>Profiling</span><span>Runtime Analysis</span></div>
+            </div>
+            <div class="project-card">
+                <div class="card-top">
+                    <div class="card-bar" style="background:linear-gradient(90deg,#00ffcc,#00c4ff)"></div>
+                    <span class="card-num mono">06</span>
+                    <a href="https://github.com/MANISH-K-07/ModelTrace" target="_blank" class="card-link">↗</a>
+                </div>
+                <h3>ModelTrace</h3>
+                <p>Research-grade framework for inspecting, debugging, and stress-testing ML models. Applies program analysis principles to ML systems.</p>
+                <div class="card-tags"><span>Python</span><span>ML Systems</span><span>Interpretability</span></div>
+            </div>
+        </div>
+        <div class="github-callout">
+            <span class="mono">// more on github</span>
+            <a href="https://github.com/MANISH-K-07" target="_blank" class="btn-outline-sm">View All Repos ↗</a>
+        </div>
+    </div>
+</section>
 
-    <div class="social-links">
-        <a href="https://github.com/MANISH-K-07" target="_blank">GitHub</a>
-        <a href="https://www.linkedin.com/in/manish-k-kandrakota/" target="_blank">LinkedIn</a>
-        <a href="mailto:manish07070707@gmail.com">Email</a>
+<!-- RESEARCH -->
+<section id="research" class="section">
+    <div class="container">
+        <div class="section-label mono">03. research</div>
+        <h2 class="section-title">Publications</h2>
+        <div class="research-layout">
+            <div class="research-pub">
+                <div class="pub-top">
+                    <span class="venue-badge">IEEE Xplore</span>
+                    <span class="mono" style="font-size:12px;color:var(--text-dim)">2024</span>
+                </div>
+                <h3 class="pub-title">Charity with Clarity: Crowdfunding using Smart Contracts</h3>
+                <p class="pub-desc">Explores blockchain technologies in transparent crowdfunding systems. Covers system design, smart contract implementation, and empirical evaluation of decentralized funding models.</p>
+                <div class="card-tags"><span>Blockchain</span><span>Smart Contracts</span><span>Solidity</span><span>Distributed Systems</span></div>
+                <a href="https://ieeexplore.ieee.org/document/10921771" target="_blank" class="btn-primary-sm">Read Paper ↗</a>
+            </div>
+            <div class="research-side">
+                <div class="side-card">
+                    <div class="side-icon">⬡</div>
+                    <h4>Open Source</h4>
+                    <p class="oss-num mono">100+ commits</p>
+                    <p>Significant contributor to <strong>Checkstyle</strong> — improving code reliability, test coverage, and rule implementations for Java's most-used static analysis tool.</p>
+                    <a href="https://github.com/checkstyle/checkstyle" target="_blank" class="link-arrow">View Checkstyle ↗</a>
+                </div>
+                <div class="side-card">
+                    <div class="side-icon">✍</div>
+                    <h4>Technical Writing</h4>
+                    <p>Long-form deep dives on compilers, distributed systems, and ML — treating documentation as engineering.</p>
+                    <div class="write-links">
+                        <a href="https://medium.com/@MANISH-K-07" target="_blank">Medium ↗</a>
+                        <a href="https://hashnode.com/@MANISH-K-07" target="_blank">Hashnode ↗</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="section alt-section">
+    <div class="container">
+        <div class="section-label mono">04. experience</div>
+        <h2 class="section-title">Background</h2>
+        <div class="exp-layout">
+            <div class="timeline">
+                <div class="tl-item">
+                    <div class="tl-dot"></div>
+                    <div class="tl-body">
+                        <div class="tl-meta"><span class="tl-org">Carnegie Mellon University</span><span class="mono tl-date">Fall 2026</span></div>
+                        <h4>Master of Science in Information Systems</h4>
+                        <p>Admitted — School of Computer Science. Focusing on systems, security, and large-scale software engineering.</p>
+                        <div class="card-tags"><span class="gold-tag">🎓 CMU Admit</span></div>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-dot"></div>
+                    <div class="tl-body">
+                        <div class="tl-meta"><span class="tl-org">Checkstyle (Open Source)</span><span class="mono tl-date">2024 – Present</span></div>
+                        <h4>Open-Source Contributor</h4>
+                        <p>100+ merged contributions — code reliability, test coverage improvements, and rule implementations for one of Java's most-used static analysis tools.</p>
+                        <div class="card-tags"><span>Java</span><span>Static Analysis</span><span>Open Source</span></div>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-dot"></div>
+                    <div class="tl-body">
+                        <div class="tl-meta"><span class="tl-org">Sreenidhi Institute of Science and Technology</span><span class="mono tl-date">2021 – 2025</span></div>
+                        <h4>B.Tech Computer Science Engineering</h4>
+                        <p>IEEE-published during sophomore year. Built an extensive systems-focused project portfolio spanning distributed systems, compilers, program analysis, and ML infrastructure.</p>
+                        <div class="card-tags"><span>CSE</span><span>Systems</span><span>Research</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="certs-panel">
+                <h3 class="mono panel-label">// certifications</h3>
+                <div class="cert-item">
+                    <span>☁</span>
+                    <div><div class="cert-name">Azure Fundamentals AZ-900</div><div class="cert-issuer">Microsoft · Dec 2025</div></div>
+                </div>
+                <div class="cert-item">
+                    <span>🐧</span>
+                    <div><div class="cert-name">Introduction to Linux (LFS101x)</div><div class="cert-issuer">Linux Foundation · Dec 2025</div></div>
+                </div>
+                <div class="cert-item">
+                    <span>💬</span>
+                    <div><div class="cert-name">Business English — English Expert</div><div class="cert-issuer">Pearson · Credly Verified</div></div>
+                </div>
+                <h3 class="mono panel-label" style="margin-top:2rem">// languages</h3>
+                <div class="skills-grid">
+                    <span>Java</span><span>Python</span><span>JavaScript</span>
+                    <span>C++</span><span>Solidity</span><span>Docker</span>
+                    <span>Node.js</span><span>CI/CD</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+    <div class="container contact-center">
+        <div class="section-label mono">05. contact</div>
+        <h2 class="section-title">Let's Connect</h2>
+        <p class="contact-desc">Whether it's a research conversation, collaboration, or just a hello — my inbox is open.</p>
+        <a href="mailto:manish07070707@gmail.com" class="contact-email">manish07070707@gmail.com</a>
+        <div class="social-row">
+            <a href="https://github.com/MANISH-K-07" target="_blank" class="social-link">GitHub ↗</a>
+            <a href="https://www.linkedin.com/in/manish-k-kandrakota/" target="_blank" class="social-link">LinkedIn ↗</a>
+            <a href="https://medium.com/@MANISH-K-07" target="_blank" class="social-link">Medium ↗</a>
+            <a href="https://hashnode.com/@MANISH-K-07" target="_blank" class="social-link">Hashnode ↗</a>
+        </div>
     </div>
 </section>
 
 <footer>
-    <p>© 2026 Manish Krishna Kandrakota. Built from scratch.</p>
+    <div class="footer-inner">
+        <span class="mono" style="color:var(--accent)">[MK]</span>
+        <span>© 2026 Manish Krishna Kandrakota — Built from scratch.</span>
+        <span class="mono" style="font-size:11px;color:var(--text-dim)"><span class="status-dot"></span> Available Fall 2026</span>
+    </div>
 </footer>
 
-    <script src="script.js"></script>
+<script src="script.js?v=4"></script>
 </body>
 </html>
