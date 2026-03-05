@@ -1,9 +1,3 @@
-/* ============================================================
-   MANISH KRISHNA KANDRAKOTA — Portfolio Script v4
-   Script is at end of <body> — DOM is already ready.
-   No DOMContentLoaded wrapper needed.
-   ============================================================ */
-
 /* ── THEME TOGGLE ── */
 const themeBtn = document.getElementById("theme-toggle");
 if (themeBtn) {
