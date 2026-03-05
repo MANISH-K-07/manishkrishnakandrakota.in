@@ -84,7 +84,7 @@
                 </div>
                 <div class="stat-div"></div>
                 <div class="stat">
-                    <span class="stat-num" data-target="100" data-suffix="+">100+</span>
+                    <span class="stat-num" data-target="130" data-suffix="+">130</span>
                     <span class="stat-label">OSS Contributions</span>
                 </div>
                 <div class="stat-div"></div>
@@ -95,9 +95,12 @@
             </div>
         </div>
         <div class="hero-right">
+            <div class="hero-right-inner">
             <div class="profile-frame">
                 <div class="profile-ring"></div>
-                <img src="assets/profile.jpg" alt="Manish Krishna Kandrakota" class="profile-img">
+                <img src="assets/profile.jpg" alt="Manish Krishna Kandrakota" class="profile-img"
+                    onmouseenter="this.style.transform='scale(1.09)';this.style.boxShadow='0 0 50px rgba(0,196,255,0.8),0 0 100px rgba(0,196,255,0.4),0 30px 80px rgba(0,0,0,0.6)';this.style.borderColor='rgba(0,196,255,1)'"
+                    onmouseleave="this.style.transform='';this.style.boxShadow='';this.style.borderColor=''">
                 <div class="profile-badge">
                     <span>🎓</span>
                     <div>
@@ -105,6 +108,7 @@
                         <div class="badge-sub">Fall 2026 Admit</div>
                     </div>
                 </div>
+            </div>
             </div>
         </div>
     </div>
@@ -273,6 +277,7 @@
                         <h4>Open-Source Contributor</h4>
                         <p>100+ merged contributions — code reliability, test coverage improvements, and rule implementations for one of Java's most-used static analysis tools, used by millions of developers worldwide.</p>
                         <div class="card-tags"><span>Java</span><span>Static Analysis</span><span>Open Source</span></div>
+                        <button class="detail-btn" onclick="openModal('checkstyle-modal')">View Contributions &amp; LOR ↗</button>
                     </div>
                 </div>
             </div>
@@ -325,6 +330,10 @@
                     <h4>B.Tech Computer Science Engineering</h4>
                     <p>IEEE-published during sophomore year. Built an extensive systems-focused project portfolio spanning distributed systems, compilers, program analysis, and ML infrastructure.</p>
                     <div class="card-tags"><span>CSE</span><span>Systems</span><span>Research</span></div>
+                    <div class="detail-btn-group">
+                        <button class="detail-btn" onclick="openModal('snist-modal')">View Courses &amp; LORs ↗</button>
+                        <button class="detail-btn" onclick="openModal('capstone-modal')">View Capstone Project ↗</button>
+                    </div>
                 </div>
             </div>
 
@@ -358,7 +367,7 @@
         <div class="section-label mono">06. contact</div>
         <h2 class="section-title">Let's Connect</h2>
         <p class="contact-desc">Whether it's a research conversation, collaboration, or just a hello — my inbox is open.</p>
-        <a href="mailto:manish07070707@gmail.com" class="contact-email">manish07070707@gmail.com</a>
+        <a href="/cdn-cgi/l/email-protection#bbd6dad5d2c8d38b8c8b8c8b8c8b8cfbdcd6dad2d795d8d4d6" class="contact-email"><span class="__cf_email__" data-cfemail="224f434c4b514a121512151215121562454f434b4e0c414d4f">[email&#160;protected]</span></a>
         <div class="social-row">
             <a href="https://github.com/MANISH-K-07" target="_blank" class="social-link">GitHub ↗</a>
             <a href="https://www.linkedin.com/in/manish-k-kandrakota/" target="_blank" class="social-link">LinkedIn ↗</a>
@@ -375,6 +384,275 @@
         <span class="mono" style="font-size:11px;color:var(--text-dim)"><span class="status-dot"></span> Available Fall 2026</span>
     </div>
 </footer>
+
+<!-- MODAL: SNIST — Courses + LORs -->
+<div class="modal-overlay" id="snist-modal" onclick="closeModalOutside(event,'snist-modal')">
+    <div class="modal-box">
+        <button class="modal-close" onclick="closeModal('snist-modal')">✕</button>
+        <div class="modal-header">
+            <div class="modal-icon">🎓</div>
+            <div>
+                <h2 class="modal-title">Sreenidhi Institute of Science &amp; Technology</h2>
+                <p class="modal-sub mono">B.Tech Computer Science Engineering · 2021 – 2025</p>
+            </div>
+        </div>
+
+        <!-- SGPA Chart -->
+        <div class="modal-section-label mono">// semester performance (SGPA)</div>
+        <div class="sgpa-chart-wrap">
+            <canvas id="sgpa-chart" height="140"></canvas>
+        </div>
+
+        <!-- Semester Tabs -->
+        <div class="modal-section-label mono" style="margin-top:1.8rem">// coursework by semester</div>
+        <div class="sem-tabs">
+            <button class="sem-tab active" onclick="switchSem(this,'sem1')">S1</button>
+            <button class="sem-tab" onclick="switchSem(this,'sem2')">S2</button>
+            <button class="sem-tab" onclick="switchSem(this,'sem3')">S3</button>
+            <button class="sem-tab" onclick="switchSem(this,'sem4')">S4</button>
+            <button class="sem-tab" onclick="switchSem(this,'sem5')">S5</button>
+            <button class="sem-tab" onclick="switchSem(this,'sem6')">S6</button>
+            <button class="sem-tab" onclick="switchSem(this,'sem7')">S7</button>
+        </div>
+
+        <div class="sem-panel active" id="sem1">
+            <div class="sem-meta mono">Year 1 · Semester 1 · SGPA: <span class="sgpa-val">8.77</span></div>
+            <div class="course-table">
+                <div class="ct-row"><span>Engineering Chemistry</span><span class="ct-grade gA">A+</span></div>
+                <div class="ct-row"><span>Essential English Language Skills</span><span class="ct-grade gA">A+</span></div>
+                <div class="ct-row"><span>Matrix Algebra and Calculus</span><span class="ct-grade gA">A+</span></div>
+                <div class="ct-row"><span>Problem Solving Using C</span><span class="ct-grade gA">A</span></div>
+                <div class="ct-row ct-lab"><span>Engineering Chemistry Lab</span><span class="ct-grade gO">O</span></div>
+                <div class="ct-row ct-lab"><span>Oral Communication Lab - I</span><span class="ct-grade gO">O</span></div>
+                <div class="ct-row ct-lab"><span>Problem Solving Using C Lab</span><span class="ct-grade gO">O</span></div>
+                <div class="ct-row ct-lab"><span>Workshop Manufacturing Processes Lab</span><span class="ct-grade gB">B+</span></div>
+            </div>
+        </div>
+
+        <div class="sem-panel" id="sem2">
+            <div class="sem-meta mono">Year 1 · Semester 2 · SGPA: <span class="sgpa-val">8.69</span></div>
+            <div class="course-table">
+                <div class="ct-row"><span>Advanced Calculus</span><span class="ct-grade gA">A</span></div>
+                <div class="ct-row"><span>Basic Electrical &amp; Electronics Engineering</span><span class="ct-grade gA">A+</span></div>
+                <div class="ct-row"><span>Data Structures</span><span class="ct-grade gA">A</span></div>
+                <div class="ct-row"><span>Engineering Graphics</span><span class="ct-grade gA">A</span></div>
+                <div class="ct-row"><span>Engineering Physics</span><span class="ct-grade gA">A+</span></div>
+                <div class="ct-row ct-lab"><span>Data Structures Using C Lab</span><span class="ct-grade gO">O</span></div>
+                <div class="ct-row ct-lab"><span>Engineering Physics Lab</span><span class="ct-grade gA">A+</span></div>
+                <div class="ct-row ct-lab"><span>Oral Communication Lab - II</span><span class="ct-grade gO">O</span></div>
+            </div>
+        </div>
+
+        <div class="sem-panel" id="sem3">
+            <div class="sem-meta mono">Year 2 · Semester 1 · SGPA: <span class="sgpa-val">8.88</span></div>
+            <div class="course-table">
+                <div class="ct-row"><span>Digital Electronics</span><span class="ct-grade gA">A+</span></div>
+                <div class="ct-row"><span>Discrete Mathematics</span><span class="ct-grade gB">B+</span></div>
+                <div class="ct-row"><span>Object Oriented Programming Through Java</span><span class="ct-grade gA">A</span></div>
+                <div class="ct-row"><span>Quantitative Aptitude and Logical Reasoning</span><span class="ct-grade gO">O</span></div>
+                <div class="ct-row"><span>Universal Human Values</span><span class="ct-grade gA">A+</span></div>
+                <div class="ct-row ct-lab"><span>BEEE Lab</span><span class="ct-grade gA">A+</span></div>
+                <div class="ct-row ct-lab"><span>Digital Electronics Lab</span><span class="ct-grade gO">O</span></div>
+                <div class="ct-row ct-lab"><span>OOP Through Java Lab</span><span class="ct-grade gO">O</span></div>
+            </div>
+        </div>
+
+        <div class="sem-panel" id="sem4">
+            <div class="sem-meta mono">Year 2 · Semester 2 · SGPA: <span class="sgpa-val">8.19</span></div>
+            <div class="course-table">
+                <div class="ct-row"><span>Business Economics and Financial Analysis</span><span class="ct-grade gA">A</span></div>
+                <div class="ct-row"><span>Computer Organization</span><span class="ct-grade gB">B+</span></div>
+                <div class="ct-row"><span>Database Management Systems</span><span class="ct-grade gA">A</span></div>
+                <div class="ct-row"><span>Probability and Statistics</span><span class="ct-grade gC">C</span></div>
+                <div class="ct-row"><span>Python Programming</span><span class="ct-grade gA">A+</span></div>
+                <div class="ct-row ct-lab"><span>DBMS Lab</span><span class="ct-grade gA">A+</span></div>
+                <div class="ct-row ct-lab"><span>Python Programming Lab</span><span class="ct-grade gO">O</span></div>
+                <div class="ct-row ct-lab"><span>IT Workshop and Computer Organization Lab</span><span class="ct-grade gO">O</span></div>
+                <div class="ct-row ct-lab"><span>Soft Skills Lab</span><span class="ct-grade gA">A+</span></div>
+            </div>
+        </div>
+
+        <div class="sem-panel" id="sem5">
+            <div class="sem-meta mono">Year 3 · Semester 1 · SGPA: <span class="sgpa-val">7.59</span></div>
+            <div class="course-table">
+                <div class="ct-row"><span>Computer Networks</span><span class="ct-grade gB">B</span></div>
+                <div class="ct-row"><span>Data Warehousing and Data Mining</span><span class="ct-grade gA">A</span></div>
+                <div class="ct-row"><span>Design and Analysis of Algorithms</span><span class="ct-grade gC">C</span></div>
+                <div class="ct-row"><span>Introduction to Data Science</span><span class="ct-grade gA">A+</span></div>
+                <div class="ct-row"><span>Software Engineering</span><span class="ct-grade gB">B</span></div>
+                <div class="ct-row ct-lab"><span>Computer Networks Lab</span><span class="ct-grade gO">O</span></div>
+                <div class="ct-row ct-lab"><span>Data Warehousing Lab</span><span class="ct-grade gO">O</span></div>
+                <div class="ct-row ct-lab"><span>Software Engineering Lab</span><span class="ct-grade gB">B+</span></div>
+                <div class="ct-row ct-lab"><span>Summer Industry Internship - I</span><span class="ct-grade gA">A+</span></div>
+            </div>
+        </div>
+
+        <div class="sem-panel" id="sem6">
+            <div class="sem-meta mono">Year 3 · Semester 2 · SGPA: <span class="sgpa-val">7.77</span></div>
+            <div class="course-table">
+                <div class="ct-row"><span>Artificial Intelligence and Deep Learning</span><span class="ct-grade gB">B+</span></div>
+                <div class="ct-row"><span>Cyber Security and Cyber Laws</span><span class="ct-grade gA">A+</span></div>
+                <div class="ct-row"><span>Machine Learning</span><span class="ct-grade gB">B</span></div>
+                <div class="ct-row"><span>Mobile Application Development</span><span class="ct-grade gB">B+</span></div>
+                <div class="ct-row"><span>Operating Systems</span><span class="ct-grade gA">A</span></div>
+                <div class="ct-row"><span>Web Technologies</span><span class="ct-grade gA">A+</span></div>
+                <div class="ct-row ct-lab"><span>OS and ML Lab</span><span class="ct-grade gA">A+</span></div>
+                <div class="ct-row ct-lab"><span>Web Technologies Lab</span><span class="ct-grade gA">A</span></div>
+                <div class="ct-row ct-lab"><span>Comprehensive Viva Voce</span><span class="ct-grade gA">A</span></div>
+            </div>
+        </div>
+
+        <div class="sem-panel" id="sem7">
+            <div class="sem-meta mono">Year 4 · Semester 1 · <span style="color:var(--gold)">In Progress</span></div>
+            <div class="course-table">
+                <div class="ct-row"><span>Automata Theory and Compiler Design</span><span class="ct-grade gip">—</span></div>
+                <div class="ct-row"><span>Cryptography and Network Security</span><span class="ct-grade gip">—</span></div>
+                <div class="ct-row"><span>Cloud Computing</span><span class="ct-grade gip">—</span></div>
+                <div class="ct-row"><span>Linux Programming</span><span class="ct-grade gip">—</span></div>
+                <div class="ct-row"><span>Agile Software Development</span><span class="ct-grade gip">—</span></div>
+                <div class="ct-row"><span>Advanced Entrepreneurship</span><span class="ct-grade gip">—</span></div>
+                <div class="ct-row ct-lab"><span>Compiler Design &amp; Information Security Lab</span><span class="ct-grade gip">—</span></div>
+                <div class="ct-row ct-lab"><span>Linux Programming Lab</span><span class="ct-grade gip">—</span></div>
+            </div>
+        </div>
+
+        <!-- Transcript + LORs -->
+        <div class="modal-section-label mono" style="margin-top:1.8rem">// transcripts &amp; letters of recommendation</div>
+        <div class="lor-list">
+            <div class="lor-card">
+                <div class="lor-info">
+                    <div class="lor-name">Official B.Tech Transcripts</div>
+                    <div class="lor-role">SNIST · Semesters 1–6 · Verified by Controller of Examinations</div>
+                </div>
+                <div class="lor-actions">
+                    <a href="ManishK_BTech_Transcripts.pdf" target="_blank" class="lor-btn">View ↗</a>
+                    <a href="ManishK_BTech_Transcripts.pdf" download class="lor-btn lor-btn-dl">Download ↓</a>
+                </div>
+            </div>
+            <div class="lor-card">
+                <div class="lor-info">
+                    <div class="lor-name">Dr. K. Shirisha</div>
+                    <div class="lor-role">Professor &amp; Head of Department, CSE · SNIST</div>
+                </div>
+                <div class="lor-actions">
+                    <a href="ManishK_LOR_Dr_K_Shirisha.pdf" target="_blank" class="lor-btn">View ↗</a>
+                    <a href="ManishK_LOR_Dr_K_Shirisha.pdf" download class="lor-btn lor-btn-dl">Download ↓</a>
+                </div>
+            </div>
+            <div class="lor-card">
+                <div class="lor-info">
+                    <div class="lor-name">Prof. Ch. Srinath Reddy</div>
+                    <div class="lor-role">Faculty, Department of CSE · SNIST</div>
+                </div>
+                <div class="lor-actions">
+                    <a href="ManishK_LOR_Ch_SrinathReddy.pdf" target="_blank" class="lor-btn">View ↗</a>
+                    <a href="ManishK_LOR_Ch_SrinathReddy.pdf" download class="lor-btn lor-btn-dl">Download ↓</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL: CAPSTONE PROJECT -->
+<div class="modal-overlay" id="capstone-modal" onclick="closeModalOutside(event,'capstone-modal')">
+    <div class="modal-box">
+        <button class="modal-close" onclick="closeModal('capstone-modal')">✕</button>
+        <div class="modal-header">
+            <div class="modal-icon">🚀</div>
+            <div>
+                <h2 class="modal-title">SphinxATS</h2>
+                <p class="modal-sub mono">Final Year Capstone Project · B.Tech CSE · SNIST</p>
+            </div>
+        </div>
+
+        <div class="modal-section-label mono">// overview</div>
+        <div class="capstone-card" style="margin-bottom:24px">
+            <div class="capstone-left">
+                <div class="capstone-tag mono">Applicant Tracking System</div>
+                <p class="capstone-desc" style="margin-top:8px">An end-to-end ATS built from scratch — featuring intelligent resume parsing, candidate ranking via NLP scoring, and automated workflow management for modern recruitment pipelines.</p>
+                <div class="card-tags" style="margin-top:16px">
+                    <span>Python</span><span>NLP</span><span>ATS</span><span>Automation</span><span>Resume Parsing</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-section-label mono">// what it does</div>
+        <div class="course-table" style="margin-bottom:24px">
+            <div class="ct-row"><span>📄 Resume Parsing</span><span class="ct-grade gA">NLP</span></div>
+            <div class="ct-row"><span>🏆 Candidate Ranking &amp; Scoring</span><span class="ct-grade gA">ML</span></div>
+            <div class="ct-row"><span>⚙ Recruitment Workflow Automation</span><span class="ct-grade gA">Core</span></div>
+            <div class="ct-row"><span>📊 Pipeline Management Dashboard</span><span class="ct-grade gA">Core</span></div>
+        </div>
+
+        <div class="gh-link-row">
+            <a href="https://github.com/MANISH-K-07/SphinxATS" target="_blank" class="lor-btn lor-btn-dl">View on GitHub ↗</a>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL: CHECKSTYLE — Contributions + LOR -->
+<div class="modal-overlay" id="checkstyle-modal" onclick="closeModalOutside(event,'checkstyle-modal')">
+    <div class="modal-box">
+        <button class="modal-close" onclick="closeModal('checkstyle-modal')">✕</button>
+        <div class="modal-header">
+            <div class="modal-icon">⬡</div>
+            <div>
+                <h2 class="modal-title">Checkstyle — Open Source Contributions</h2>
+                <p class="modal-sub mono">100+ Merged Pull Requests · 2024 – Present</p>
+            </div>
+        </div>
+        <div class="modal-section-label mono">// contribution breakdown</div>
+        <div class="contrib-stats">
+            <div class="contrib-stat"><span class="contrib-num">130</span><span class="contrib-label">Merged PRs</span></div>
+            <div class="contrib-stat"><span class="contrib-num">5</span><span class="contrib-label">Contribution Types</span></div>
+            <div class="contrib-stat"><span class="contrib-num">↑</span><span class="contrib-label">Test Coverage</span></div>
+        </div>
+        <div class="contrib-bar-section"><div class="bar-scale-label mono">scale: 0 — 50 PRs</div>
+            <div class="contrib-bar-item">
+                <span class="bar-label">Bug Fixes &amp; Regression</span>
+                <div class="bar-track"><div class="bar-fill" data-w="90" style="background:#00c4ff"></div></div>
+                <span class="bar-pct">~46</span>
+            </div>
+            <div class="contrib-bar-item">
+                <span class="bar-label">Test Improvements</span>
+                <div class="bar-track"><div class="bar-fill" data-w="65" style="background:#0066ff"></div></div>
+                <span class="bar-pct">~35</span>
+            </div>
+            <div class="contrib-bar-item">
+                <span class="bar-label">Refactoring</span>
+                <div class="bar-track"><div class="bar-fill" data-w="50" style="background:#7b2fff"></div></div>
+                <span class="bar-pct">~26</span>
+            </div>
+            <div class="contrib-bar-item">
+                <span class="bar-label">Enhancements</span>
+                <div class="bar-track"><div class="bar-fill" data-w="35" style="background:#00ff88"></div></div>
+                <span class="bar-pct">~18</span>
+            </div>
+            <div class="contrib-bar-item">
+                <span class="bar-label">Documentation</span>
+                <div class="bar-track"><div class="bar-fill" data-w="10" style="background:#f0b429"></div></div>
+                <span class="bar-pct">~5</span>
+            </div>
+        </div>
+        <div class="gh-link-row">
+            <a href="https://github.com/checkstyle/checkstyle/pulls?q=is%3Apr+author%3AMANISH-K-07+is%3Aclosed" target="_blank" class="lor-btn">View PRs on GitHub ↗</a>
+            <a href="https://github.com/checkstyle/checkstyle/issues?q=is%3Aissue+state%3Aclosed+author%3AMANISH-K-07" target="_blank" class="lor-btn">View Issues on GitHub ↗</a>
+        </div>
+        <div class="modal-section-label mono" style="margin-top:2rem">// letter of recommendation</div>
+        <div class="lor-list">
+            <div class="lor-card">
+                <div class="lor-info">
+                    <div class="lor-name">Roman Ivanov</div>
+                    <div class="lor-role">Project Administrator &amp; Lead Developer · Checkstyle</div>
+                </div>
+                <div class="lor-actions">
+                    <a href="ManishK_LOR_RomanIvanov.pdf" target="_blank" class="lor-btn">View ↗</a>
+                    <a href="ManishK_LOR_RomanIvanov.pdf" download class="lor-btn lor-btn-dl">Download ↓</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script src="script.js?v=5"></script>
 </body>

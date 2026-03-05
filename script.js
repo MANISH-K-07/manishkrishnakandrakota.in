@@ -210,3 +210,190 @@ if ("IntersectionObserver" in window && navAs.length) {
     }, { threshold: 0.4 });
     document.querySelectorAll("section[id]").forEach(s => no.observe(s));
 }
+
+/* ── MODALS ── */
+function openModal(id) {
+    const modal = document.getElementById(id);
+    if (!modal) return;
+    modal.classList.add("open");
+    document.body.style.overflow = "hidden";
+    // Animate bars when checkstyle modal opens
+    if (id === "checkstyle-modal") {
+        setTimeout(() => {
+            modal.querySelectorAll(".bar-fill").forEach(bar => {
+                bar.style.width = bar.dataset.w + "%";
+            });
+        }, 120);
+    }
+}
+
+function closeModal(id) {
+    const modal = document.getElementById(id);
+    if (!modal) return;
+    modal.classList.remove("open");
+    document.body.style.overflow = "";
+}
+
+function closeModalOutside(e, id) {
+    if (e.target === e.currentTarget) closeModal(id);
+}
+
+// Close on Escape key
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+        document.querySelectorAll(".modal-overlay.open").forEach(m => {
+            m.classList.remove("open");
+            document.body.style.overflow = "";
+        });
+    }
+});
+
+/* ── SEMESTER TAB SWITCHER ── */
+function switchSem(btn, panelId) {
+    btn.closest('.modal-box').querySelectorAll('.sem-tab').forEach(t => t.classList.remove('active'));
+    btn.closest('.modal-box').querySelectorAll('.sem-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(panelId).classList.add('active');
+}
+
+/* ── SGPA CHART ── */
+function drawSGPAChart() {
+    const canvas = document.getElementById('sgpa-chart');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const dpr = window.devicePixelRatio || 1;
+    const W = canvas.parentElement.clientWidth - 40;
+    const H = 170;
+    canvas.width  = W * dpr;
+    canvas.height = H * dpr;
+    canvas.style.width  = W + 'px';
+    canvas.style.height = H + 'px';
+    ctx.scale(dpr, dpr);
+
+    // Actual data S1-S6 + S7 projected
+    const actual    = [8.77, 8.69, 8.88, 8.19, 7.59, 7.77];
+    const projected = 8.40; // S7 projection — recovery trend continuing
+    const allData   = [...actual, projected];
+    const labels    = ['S1', 'S2', 'S3', 'S4', 'S5', 'S6', 'S7*'];
+    const n         = allData.length;
+
+    const isLight = document.body.classList.contains('light-mode');
+    const accent  = isLight ? '#0055cc' : '#00c4ff';
+    const projCol = isLight ? 'rgba(240,180,41,0.9)' : 'rgba(240,180,41,0.9)';
+    const gridC   = isLight ? 'rgba(0,0,0,0.07)' : 'rgba(255,255,255,0.06)';
+    const textC   = isLight ? '#44607a' : '#7a90b0';
+
+    const pad = { top: 24, right: 24, bottom: 44, left: 44 };
+    const cW  = W - pad.left - pad.right;
+    const cH  = H - pad.top  - pad.bottom;
+    const minV = 7.0, maxV = 9.5;
+
+    function xOf(i) { return pad.left + (i / (n - 1)) * cW; }
+    function yOf(v) { return pad.top + (1 - (v - minV) / (maxV - minV)) * cH; }
+
+    // Grid lines
+    [7.0, 7.5, 8.0, 8.5, 9.0].forEach(v => {
+        const y = yOf(v);
+        ctx.beginPath(); ctx.moveTo(pad.left, y); ctx.lineTo(pad.left + cW, y);
+        ctx.strokeStyle = gridC; ctx.lineWidth = 1; ctx.setLineDash([]); ctx.stroke();
+        ctx.fillStyle = textC; ctx.font = `10px 'JetBrains Mono', monospace`;
+        ctx.textAlign = 'right'; ctx.fillText(v.toFixed(1), pad.left - 8, y + 4);
+    });
+
+    // Gradient fill — actual only
+    const grad = ctx.createLinearGradient(0, pad.top, 0, pad.top + cH);
+    grad.addColorStop(0, isLight ? 'rgba(0,85,204,0.15)' : 'rgba(0,196,255,0.15)');
+    grad.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.beginPath();
+    ctx.moveTo(xOf(0), yOf(actual[0]));
+    actual.forEach((v, i) => { if (i > 0) ctx.lineTo(xOf(i), yOf(v)); });
+    ctx.lineTo(xOf(actual.length - 1), pad.top + cH);
+    ctx.lineTo(xOf(0), pad.top + cH);
+    ctx.closePath(); ctx.fillStyle = grad; ctx.fill();
+
+    // Actual line (S1–S6)
+    ctx.beginPath();
+    ctx.moveTo(xOf(0), yOf(actual[0]));
+    actual.forEach((v, i) => { if (i > 0) ctx.lineTo(xOf(i), yOf(v)); });
+    ctx.setLineDash([]); ctx.strokeStyle = accent; ctx.lineWidth = 2.5;
+    ctx.lineJoin = 'round'; ctx.stroke();
+
+    // Recovery highlight — S5→S6→S7 arrow zone
+    const recoverGrad = ctx.createLinearGradient(xOf(4), 0, xOf(6), 0);
+    recoverGrad.addColorStop(0, 'rgba(0,255,136,0)');
+    recoverGrad.addColorStop(1, 'rgba(0,255,136,0.06)');
+    ctx.fillStyle = recoverGrad;
+    ctx.fillRect(xOf(4), pad.top, xOf(6) - xOf(4), cH);
+
+    // Dotted projection line S6→S7
+    ctx.beginPath();
+    ctx.moveTo(xOf(5), yOf(actual[5]));
+    ctx.lineTo(xOf(6), yOf(projected));
+    ctx.setLineDash([5, 4]); ctx.strokeStyle = projCol; ctx.lineWidth = 2;
+    ctx.stroke(); ctx.setLineDash([]);
+
+    // Actual dots
+    actual.forEach((v, i) => {
+        const x = xOf(i), y = yOf(v);
+        ctx.beginPath(); ctx.arc(x, y, 4.5, 0, Math.PI * 2);
+        ctx.fillStyle = accent; ctx.fill();
+        ctx.fillStyle = textC; ctx.font = `bold 10px 'JetBrains Mono', monospace`;
+        ctx.textAlign = 'center';
+        ctx.fillText(v.toFixed(2), x, y - 11);
+    });
+
+    // Projected dot (S7) — gold, hollow
+    const px = xOf(6), py = yOf(projected);
+    ctx.beginPath(); ctx.arc(px, py, 5, 0, Math.PI * 2);
+    ctx.strokeStyle = projCol; ctx.lineWidth = 2;
+    ctx.fillStyle = isLight ? '#fff' : '#0a1628'; ctx.fill(); ctx.stroke();
+    ctx.fillStyle = projCol; ctx.font = `bold 10px 'JetBrains Mono', monospace`;
+    ctx.textAlign = 'center';
+    ctx.fillText(projected.toFixed(2) + '*', px, py - 12);
+
+    // X-axis labels
+    labels.forEach((lbl, i) => {
+        const x = xOf(i);
+        ctx.fillStyle = i === 6 ? projCol : textC;
+        ctx.font = `10px 'JetBrains Mono', monospace`;
+        ctx.textAlign = 'center';
+        ctx.fillText(lbl, x, H - pad.bottom + 18);
+    });
+
+    // Legend
+    ctx.setLineDash([]);
+    const ly = H - 8;
+    ctx.beginPath(); ctx.moveTo(pad.left, ly); ctx.lineTo(pad.left + 20, ly);
+    ctx.strokeStyle = accent; ctx.lineWidth = 2; ctx.stroke();
+    ctx.fillStyle = textC; ctx.font = `9px 'JetBrains Mono', monospace`;
+    ctx.textAlign = 'left'; ctx.fillText('Actual', pad.left + 24, ly + 3);
+
+    ctx.beginPath(); ctx.moveTo(pad.left + 80, ly); ctx.lineTo(pad.left + 100, ly);
+    ctx.setLineDash([4, 3]); ctx.strokeStyle = projCol; ctx.lineWidth = 2; ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = projCol; ctx.fillText('* Projected (S7)', pad.left + 104, ly + 3);
+}
+
+// Hook into openModal to draw chart
+const _origOpen = openModal;
+window.openModal = function(id) {
+    _origOpen(id);
+    if (id === 'snist-modal') {
+        setTimeout(drawSGPAChart, 80);
+    }
+};
+
+/* ── PROFILE IMAGE HOVER ── */
+const profileImg = document.querySelector('.profile-img');
+if (profileImg) {
+    profileImg.addEventListener('mouseenter', () => {
+        profileImg.style.transform  = 'scale(1.08)';
+        profileImg.style.boxShadow  = '0 0 40px rgba(0,196,255,0.7), 0 0 80px rgba(0,196,255,0.35), 0 30px 80px rgba(0,0,0,0.6)';
+        profileImg.style.borderColor = 'rgba(0,196,255,1)';
+    });
+    profileImg.addEventListener('mouseleave', () => {
+        profileImg.style.transform  = '';
+        profileImg.style.boxShadow  = '';
+        profileImg.style.borderColor = '';
+    });
+}
