@@ -223,7 +223,7 @@ body.light-mode #header.scrolled { background:rgba(242,245,252,0.92); }
     border-color: rgba(0,196,255,1) !important;
 }
 .profile-badge {
-    position:absolute; bottom:12px; right:-24px;
+    position:absolute; bottom:170px; right:252px;
     display:flex; align-items:center; gap:10px;
     background:var(--bg-card); border:1px solid var(--border);
     border-radius:var(--r); padding:10px 16px;
