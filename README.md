@@ -5,7 +5,7 @@
 ### Computer Science & Security Engineer · CMU MSIS '26
 
 [![Live Site](https://img.shields.io/badge/🌐_Live_Site-manishkrishna.is--a.dev-00c4ff?style=for-the-badge&labelColor=050b18)](https://manish-k-07.github.io/manishkrishnakandrakota.in/)
-[![CMU](https://img.shields.io/badge/🎓_CMU_MSIS-Fall_2026_Admit-c41230?style=for-the-badge&labelColor=050b18)](https://www.cs.cmu.edu/)
+[![CMU](https://img.shields.io/badge/🎓_CMU_MSIS-Fall_2026_Admit-c41230?style=for-the-badge&labelColor=050b18)](https://www.cmu.edu/)
 
 [![IEEE](https://img.shields.io/badge/📄_IEEE-Published_Author-00629b?style=for-the-badge&labelColor=050b18)](https://ieeexplore.ieee.org/document/10921771)
 [![Checkstyle](https://img.shields.io/badge/⬡_Checkstyle-100+_Contributions-00ff88?style=for-the-badge&labelColor=050b18)](https://github.com/checkstyle/checkstyle/pulls?q=is%3Apr+author%3AMANISH-K-07+is%3Aclosed)
