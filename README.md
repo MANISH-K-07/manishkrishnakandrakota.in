@@ -2,9 +2,10 @@
 
 # Manish Krishna Kandrakota
 
+[![Live Site](https://img.shields.io/badge/🌐_Live_Site-manishkrishnakandrakota.is--a.dev-00c4ff?style=for-the-badge&labelColor=050b18)](https://manish-k-07.github.io/manishkrishnakandrakota.in/)
+
 ### Computer Science & Security Engineer · CMU MSIS '26
 
-[![Live Site](https://img.shields.io/badge/🌐_Live_Site-manishkrishna.is--a.dev-00c4ff?style=for-the-badge&labelColor=050b18)](https://manish-k-07.github.io/manishkrishnakandrakota.in/)
 [![CMU](https://img.shields.io/badge/🎓_CMU_MSIS-Fall_2026_Admit-c41230?style=for-the-badge&labelColor=050b18)](https://www.cmu.edu/)
 
 [![IEEE](https://img.shields.io/badge/📄_IEEE-Published_Author-00629b?style=for-the-badge&labelColor=050b18)](https://ieeexplore.ieee.org/document/10921771)

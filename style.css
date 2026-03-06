@@ -65,7 +65,7 @@ body.light-mode::before {
 #loader {
     position:fixed; inset:0; background:var(--bg); z-index:9999;
     display:flex; align-items:center; justify-content:center;
-    animation: loaderOut 0.5s ease 1.8s forwards;
+    animation: loaderOut 0.5s ease 2.2s forwards;
 }
 @keyframes loaderOut { to { opacity:0; visibility:hidden; } }
 .loader-inner { text-align:center; }
