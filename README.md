@@ -39,7 +39,7 @@ The design theme is **Blueprint Noir** — deep navy and black with electric cya
 |---|---------|------------|
 | 01 | **About** | Expertise cards — Systems, Static Analysis, Security |
 | 02 | **Projects** | 6 featured projects with gradient bars and 3D tilt |
-| 03 | **Research** | IEEE paper + Checkstyle OSS sidebar |
+| 03 | **Research** | IEEE publications + Checkstyle OSS |
 | 04 | **Experience** | Checkstyle open-source timeline + certifications |
 | 05 | **Academia** | Full education timeline from SSC → CMU |
 | 06 | **Contact** | Email, GitHub, LinkedIn, Medium, Hashnode |
